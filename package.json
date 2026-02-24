@@ -2,6 +2,9 @@
   "name": "electron-js",
   "private": true,
   "version": "0.0.0",
+  "description": "Desktop app built with Electron and React",
+  "author": "Tomas Melesse",
+  "license": "MIT",
   "type": "module",
   "main": "dist-electron/main.js",
   "scripts": {
