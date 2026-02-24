@@ -1,6 +1,9 @@
 {
     "appId": "com.tomas-melesse.electron-js",
     "files": ["dist-electron", "dist-react"],
+    "extraResources": [
+        "dist-electron/preload.cjs"
+    ],
     "icon": "./desktop.Icon.png",
     "mac": {
         "target": "dmg"
