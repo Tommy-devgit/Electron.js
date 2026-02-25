@@ -1,7 +1,7 @@
-import { app, BrowserWindow } from "electron"
+import { app, BrowserWindow, ipcMain } from "electron"
 import path from "path"
 import { isDev } from "./utils.js";
-import pollResources from "./resourceManager.js";
+import pollResources, { getStaticData } from "./resourceManager.js";
 import { getPreloadPath } from "./pathResolver.js";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -23,5 +23,10 @@ app.on("ready", ()=> {
         mainWindow.loadFile(path.join(app.getAppPath(), 'dist-react', 'index.html'));
     }
 
-    pollResources();
+    pollResources(mainWindow);
+
+    ipcMain.handle("getStaticData", () => {
+        return getStaticData();
+    })
+
 })
