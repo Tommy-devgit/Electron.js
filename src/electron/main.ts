@@ -1,8 +1,7 @@
 import { app, BrowserWindow } from "electron"
-import path from "path"
 import { ipcMainHandle, isDev } from "./utils.js";
 import pollResources, { getStaticData } from "./resourceManager.js";
-import { getPreloadPath } from "./pathResolver.js";
+import { getPreloadPath, getUIPath } from "./pathResolver.js";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type test = string;
@@ -20,7 +19,7 @@ app.on("ready", ()=> {
         mainWindow.loadURL("http://localhost:5123");
     }
     else {
-        mainWindow.loadFile(path.join(app.getAppPath(), 'dist-react', 'index.html'));
+        mainWindow.loadFile(getUIPath());
     }
 
     pollResources(mainWindow);
