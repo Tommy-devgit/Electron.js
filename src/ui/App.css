@@ -4,6 +4,9 @@
   padding: 2rem;
   text-align: center;
 }
+#root { width: 100%; }
+.App { width: 100%; }
+
 
 .logo {
   height: 6em;
