@@ -11,8 +11,6 @@ function App() {
     [statistics]
   );
 
-  console.log(statistics)
-
 
   return (
       <div className='App'>
