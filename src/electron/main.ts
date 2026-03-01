@@ -1,7 +1,8 @@
-import { app, BrowserWindow } from "electron"
+import { app, BrowserWindow, Tray } from "electron"
 import { ipcMainHandle, isDev } from "./utils.js";
 import pollResources, { getStaticData } from "./resourceManager.js";
-import { getPreloadPath, getUIPath } from "./pathResolver.js";
+import { getAssetPath, getPreloadPath, getUIPath } from "./pathResolver.js";
+import path from "path";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type test = string;
@@ -26,6 +27,8 @@ app.on("ready", ()=> {
 
     ipcMainHandle("getStaticData", () => {
         return getStaticData();
-    })
+    });
 
-})
+    new Tray(path.join(getAssetPath(), 'trayIcon.png'));
+
+});
