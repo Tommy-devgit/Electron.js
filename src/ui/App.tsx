@@ -40,9 +40,9 @@ function App() {
   return (
       <div className='App'>
         <header>
-          <button id='close'></button>
-          <button id='minimize'></button>
-          <button id='maximize'></button>
+          <button id='close' onClick={() => window.electron.sendFrameAction('CLOSE')}></button>
+          <button id='minimize' onClick={() => window.electron.sendFrameAction('MINIMIZE')}></button>
+          <button id='maximize' onClick={() => window.electron.sendFrameAction('MAXIMIZE')}></button>
         </header>
         <div style={{ height: 120, width: '100%' }}>
           <Chart data={activeUsages} maxDataPoints={10}/>
