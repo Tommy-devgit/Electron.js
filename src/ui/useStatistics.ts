@@ -4,6 +4,10 @@ export function useStatistics(dataPointCount: number): Statistics[] {
     const [value, setvalue] = useState<Statistics[]>([]);
 
     useEffect(() => {
+    if (!window.electron?.subscribeStatistics) {
+      return;
+    }
+
     const unsub = window.electron.subscribeStatistics((stats) => 
         setvalue((prev) => {
             const newData = [...prev, stats];
@@ -17,7 +21,7 @@ export function useStatistics(dataPointCount: number): Statistics[] {
         })    
     );
     return unsub;
-  }, []);
+  }, [dataPointCount]);
 
   return value;
 }

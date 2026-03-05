@@ -2,7 +2,10 @@ import { Area, AreaChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } fro
 
 type BaseChartProps = {
     data: { value: number | undefined }[];
+    fill: string;
+    stroke: string;
 };
+
 
 export function BaseChart(props: BaseChartProps) {
     return (
@@ -13,8 +16,8 @@ export function BaseChart(props: BaseChartProps) {
                 <YAxis domain={[0, 100]} stroke="transparent" width={0} />
                 <Area
                     fillOpacity={0.4}
-                    fill="#0A4D5C"
-                    stroke="#5DD4EE"
+                    fill={props.fill}
+                    stroke={props.stroke}
                     strokeWidth={3}
                     type="monotone"
                     dataKey="value"

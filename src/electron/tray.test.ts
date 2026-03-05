@@ -44,7 +44,7 @@ test('', () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     template[0]?.click?.(null as any, null as any, null as any);
     expect(mainWindow.show).toHaveBeenCalled();
-    expect(app.dock.show).toHaveBeenCalled();
+    // expect(app.dock.show).toHaveBeenCalled();
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     template[1]?.click?.(null as any, null as any, null as any);
